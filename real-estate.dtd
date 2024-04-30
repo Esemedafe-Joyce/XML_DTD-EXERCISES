@@ -1,0 +1,37 @@
+<!ELEMENT real-estate (agencies,owners,properties,flats)>
+
+<!-- Exercise 4
+• Extend the previous DTD such that… 
+▪ Element agencies can now contain particular agency elements -->
+<!ELEMENT agencies (agency+)>
+<!-- ▪ Element owners can now contain particular owner elements -->
+<!ELEMENT owners (owner+)>
+<!-- ▪ Element properties can now contain particular property elements -->
+<!ELEMENT properties (property+)>
+<!-- ▪ Element flats can now contain particular flat elements -->
+<!ELEMENT flats (flat+)>
+
+<!--  Agency = name, e-mail, phone 
+    ‒ Owner = name 
+    ‒ Property = name, description, number of flats, features, owner reference 
+    ‒ Flat = name, description, features, property reference 
+    ▪ Use attributes for references, otherwise elements 
+    ▪ Use only CDATA and #PCDATA for content and values -->
+
+<!ELEMENT agency (name,e-mail,phone)>
+<!ELEMENT owner (name)>
+<!ELEMENT property (name,description,number-of-flats,features)>
+<!ATTLIST property owner-reference ID #REQUIRED>
+<!ELEMENT flat (name,description,features)>
+<!ATTLIST flat property-reference CDATA #REQUIRED>
+
+<!ELEMENT name (#PCDATA)>
+<!ATTLIST name parent-name ID #REQUIRED>
+<!ELEMENT description (#PCDATA)>
+<!ATTLIST description description-for CDATA #REQUIRED>
+<!ELEMENT features (#PCDATA)>
+<!ATTLIST features for CDATA #REQUIRED>
+
+<!ELEMENT e-mail (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT number-of-flats (#PCDATA)>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Exercise 2 
+    Create an internal DTD for the previous XML document 
+    ▪ Ensure its validity 
+    ▪ Then try to break it -->
+
+<!-- <!DOCTYPE real-estate[
+<!ELEMENT real-estate (agencies,owners,properties,flats)>
+<!ELEMENT agencies EMPTY>
+<!ELEMENT owners EMPTY>
+<!ELEMENT properties EMPTY>
+<!ELEMENT flats EMPTY>
+]> -->
+
+<!-- Exercise 3
+     Move the previous DTD to an external file and validate the XML document again
+-->
+<!DOCTYPE real-estate SYSTEM "real-estate.dtd">
+<!--Exercise 1  
+    Create an XML document with the following sample real estate data 
+    ▪ Root element real-estate will contain a sequence of sub-elements agencies, owners, properties and flats, all with an empty content 
+    ▪ Ensure well-formedness -->
+
+    <real-estate>
+
+        <agencies>
+            <agency>
+                <name parent-name="agency">Housing</name>
+                <e-mail>housing@gmail.com</e-mail>
+                <phone>+2345678910</phone>
+            </agency>
+        </agencies>
+
+        <owners>
+            <owner>
+                <name parent-name="owner">Mr John Doe</name>
+            </owner>
+        </owners>
+
+        <properties>
+            <property owner-reference="johndoe345">
+                <name parent-name="property">Regina Halls</name>
+                <description description-for="property">bedroom flat</description>
+                <number-of-flats>five</number-of-flats>
+                <features for="property">Spacious parking space</features>
+            </property>
+        </properties>
+
+        <flats>
+            <flat property-reference="reghalls1234">
+                <name parent-name="regina-halls">Hope</name>
+                <description description-for="hope">one bed, one toilet and bathroom, one kitchen,
+                    balcony with rope line and space for washeand drier</description>
+                <features for="hope">one bed, one toilet and bathroom, one kitchen,
+                    balcony with rope line and space for washeand drier</features>
+            </flat>
+            <flat property-reference="reghalls1234">
+                <name parent-name="reginahalls">Peace</name>
+                <description description-for="peace">one bed, one toilet and bathroom, one kitchen,
+                    balcony with rope line and space for washeand drier</description>
+                <features for="peace">one bed, one toilet and bathroom, one kitchen,
+                    balcony with rope line and space for washeand drier</features>
+            </flat>
+        </flats>
+        
+    </real-estate>
+
+<!-- Exercise 4
+    Extend the XML document such that it contains 1 sample agency,
+    1 owner, 1 property, and 2 flats 
+    ▪ Ensure well-formedness and validity
+ -->
